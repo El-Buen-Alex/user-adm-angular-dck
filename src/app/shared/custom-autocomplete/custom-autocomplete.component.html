@@ -1,0 +1,14 @@
+<div class="input-container">
+    <mat-form-field appearance="fill" [formGroup]="mainForm"  >
+        <input matInput 
+            formControlName="selected_value"
+            placeholder="{{placeholder}}"
+            [matAutocomplete]="autc">
+        <mat-icon  class="icon-display" matSuffix>arrow_drop_down</mat-icon>
+        <mat-autocomplete #autc="matAutocomplete" [displayWith]="showObject"  (optionSelected)="onSelectionChange($event)">
+            <mat-option *ngFor="let item of items" [value]="item">
+                {{ item.nombre }}
+            </mat-option>
+        </mat-autocomplete>
+    </mat-form-field>
+</div>

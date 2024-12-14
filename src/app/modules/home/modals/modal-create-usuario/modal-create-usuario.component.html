@@ -1,0 +1,10 @@
+
+<h2 mat-dialog-title>Registrar usuario</h2>
+<mat-dialog-content [formGroup]="mainForm" class="main-container">
+    <app-form-usuario
+    ></app-form-usuario>
+</mat-dialog-content>
+<mat-dialog-actions class="actions">
+    <button mat-raised-button (click)="onSave()" class="aceptar">Guardar</button>
+    <button mat-raised-button mat-dialog-close>Cancelar</button>
+</mat-dialog-actions>

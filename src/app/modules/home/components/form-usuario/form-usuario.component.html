@@ -1,0 +1,66 @@
+<div  class="form-container"  [formGroup]="mainForm">
+    <div class="inputs-container">
+        <div class="form-autocomplete-container">
+            <span>Departamento:</span>
+            <app-custom-autocomplete
+                [customLabel]="'Seleccione un departamento'"
+                [placeholder]="'Seleccione un departamento'"
+                [customFormControlName]="'departamento'"
+                [items]="departamentos"
+                [itemSelected]="userInformation?.departamento"
+            ></app-custom-autocomplete>
+        </div>
+        <div class="form-autocomplete-container">
+            <span>Cargo:</span>
+            <app-custom-autocomplete
+                [customLabel]="'Seleccione un cargo'"
+                [itemSelected]="userInformation?.cargo"
+                [placeholder]="'Seleccione un cargo'"
+                [customFormControlName]="'cargo'"
+                [items]="cargos"
+            ></app-custom-autocomplete>
+        </div>
+    </div>
+    <div class="inputs-container">
+        <div class="form-input-container">
+            <span>Usuario:</span>
+            <mat-form-field appearance="fill">
+                <input matInput formControlName="usuario"  required>
+            </mat-form-field>
+        </div>
+        <div class="form-input-container">
+            <span>Email:</span>
+            <mat-form-field appearance="fill">
+                <input matInput formControlName="email"  required>
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="inputs-container">
+        <div class="form-input-container">
+            <span>Primer Nombre:</span>
+            <mat-form-field appearance="fill">
+                <input matInput formControlName="primerNombre"  required>
+            </mat-form-field>
+        </div>
+        <div class="form-input-container">
+            <span>Segundo Nombre:</span>
+            <mat-form-field appearance="fill">
+                <input matInput formControlName="segundoNombre"  required>
+            </mat-form-field>
+       </div>
+    </div>
+    <div class="inputs-container">
+        <div class="form-input-container">
+            <span>Primer Apellido:</span>
+            <mat-form-field appearance="fill">
+                <input matInput formControlName="primerApellido" required>
+            </mat-form-field>
+        </div>
+        <div class="form-input-container">
+            <span >Segundo Apellido:</span>
+            <mat-form-field appearance="fill">
+                <input matInput formControlName="segundoApellido"  required>
+            </mat-form-field>
+        </div>
+    </div>
+</div>

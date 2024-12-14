@@ -1,4 +1,103 @@
 /* You can add global styles to this file, and also import other style files */
+@use "@angular/material" as mat;
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color: #F3F4F6; }
+
+
+$custom-warn: mat.m2-define-palette(mat.$m2-pink-palette, 700, 400, 600);
+$custom-accent: mat.m2-define-palette(mat.$m2-blue-grey-palette, A200, A100, A400);
+$custom-primary: mat.m2-define-palette(mat.$m2-green-palette, 500, 400, 700);
+$custom-theme: mat.m2-define-dark-theme(
+    (
+        color: (
+            primary: $custom-primary,
+            accent: $custom-accent,
+            warn:$custom-warn,
+        ),
+    )
+);
+
+.custom-theme {
+    @include mat.button-theme($custom-theme);
+    @include mat.progress-spinner-theme($custom-theme);
+}
+:root {
+    @include mat.form-field-overrides((
+        filled-container-color: #E0E7EB,
+        filled-input-text-color:#8e9eb3,
+        filled-input-text-placeholder-color: #8e9eb3,
+        filled-label-text-size:12px,
+        filled-container-shape:rounded,
+        container-vertical-padding:10px,
+        container-height:40px,
+    ));
+    @include mat.dialog-overrides((
+        container-shape: 4px,
+    ));
+    @include mat.button-overrides((
+        protected-container-shape: 4px,
+        protected-container-height:30px,
+    ));
+    .mdc-line-ripple {
+        display: none;
+    }
+}
+
+
+.custom-panel{
+    @include mat.dialog-overrides((
+        container-shape: 4px,
+        container-color:#F3F4F6,
+        content-padding:8px,
+    ));
+    @include mat.button-overrides((
+        protected-container-shape: 2px,
+    ));
+    
+    h2[mat-dialog-title]{
+        border-bottom: 2px solid #C3C8D2; //TODO
+        font-weight: bold;
+        font-size: 18px;
+        color: #435370;
+    }
+    mat-dialog-content{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    mat-dialog-actions{
+        border-top: 2px solid #C3C8D2; //TODO
+        .aceptar{
+            background-color: #2F7DE3;
+            color: white;
+        }
+    }
+    .form-input-container{
+        @include mat.form-field-overrides((
+            filled-container-color: white,
+        ));
+    }
+    .form-container{
+        display: flex;
+        flex-direction: column;
+        .inputs-container{
+            display: flex;
+            justify-content: space-between;
+            gap: 40px;
+            .form-input-container, .form-autocomplete-container{
+                display: flex;
+                justify-content:start;
+                flex-direction: column;
+                width: 100%;
+                span{
+                    color: #435370;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+}
+
+
+
